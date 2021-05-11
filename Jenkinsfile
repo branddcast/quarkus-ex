@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh './mvnw -V clean install -DskipTests -DskipITs -DskipDocs'
+                sh './mvnw -U clean install -DskipTests'
             }
         }
         stage('Test JVM') {
