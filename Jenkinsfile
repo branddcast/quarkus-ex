@@ -6,8 +6,6 @@ pipeline {
         cron('H H(13-14) * * *')
     }
     options {
-        timestamps()
-        ansiColor("xterm")
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
     stages {
