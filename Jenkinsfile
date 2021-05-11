@@ -19,7 +19,7 @@ pipeline {
                 sh './mvnw -U clean install -DskipTests'
             }
         }
-        stage('Test JVM') {
+        /*stage('Test JVM') {
             options {
                 timeout(time: 120, unit: 'MINUTES')
             }
@@ -44,7 +44,7 @@ pipeline {
                     junit '**/target/*-reports/TEST*.xml'
                 }
             }
-        }
+        }*/
         stage('Reports') {
             parallel {
                 stage('Disk usage') {
