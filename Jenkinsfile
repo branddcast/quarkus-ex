@@ -1,10 +1,11 @@
+#!/usr/bin/env groovy
+
+@Library(['github.com/shared-library']) _
+
 pipeline {
     agent any
     triggers {
         cron('H H(13-14) * * *')
-    }
-    tools {
-        jdk 'jvm'
     }
     options {
         timestamps()
