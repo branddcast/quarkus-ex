@@ -19,32 +19,6 @@ pipeline {
                 sh './mvnw -U clean install -DskipTests'
             }
         }
-        /*stage('Test JVM') {
-            options {
-                timeout(time: 120, unit: 'MINUTES')
-            }
-            steps {
-                sh './mvnw -fn clean verify -Ddocker -Dtest-mariadb -Dtest-mssql -Dtest-mysql -Dtest-postgresql -Dtest-gelf -Dtest-neo4j -Dtest-kafka -Dtest-elasticsearch -Dtest-vault -Dtest-dynamodb -Dtest-keycloak -DskipDocs'
-            }
-            post {
-                always {
-                    junit '**/target/*-reports/TEST*.xml'
-                }
-            }
-        }
-        stage('Test Native') {
-            options {
-                timeout(time: 4, unit: 'HOURS')
-            }
-            steps {
-                sh 'GRAALVM_HOME=$JAVA_HOME ./mvnw -fn clean verify -Dnative -Ddocker -Dtest-mariadb -Dtest-mssql -Dtest-mysql -Dtest-postgresql -Dtest-gelf -Dtest-neo4j -Dtest-kafka -Dtest-elasticsearch -Dtest-vault -Dtest-dynamodb -Dtest-keycloak -DskipDocs'
-            }
-            post {
-                always {
-                    junit '**/target/*-reports/TEST*.xml'
-                }
-            }
-        }*/
         stage('Reports') {
             parallel {
                 stage('Disk usage') {
